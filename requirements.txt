@@ -1,0 +1,7 @@
+torch==2.0.0
+scikit_learn==0.24.2
+pywavelets==1.4.1
+Bottleneck
+scipy
+statsmodels
+pandas
