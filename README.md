@@ -1,4 +1,4 @@
-# **Learning Robust and Consistent Time Series Representations: A Dilated Inception-Based Approach**.
+# **Efficiency Meets Robustness: Enhancing Time Series Representations through Noise-Resilient Training and an Efficient Encoder**.
 
 ## Requirements
 
