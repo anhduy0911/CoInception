@@ -58,8 +58,8 @@ class CoInception:
         self.n_epochs = 0
         self.n_iters = 0
     
-    def lowpassfilter(self, signal, thresh = 0.63, wavelet="db4"):
-        thresh = thresh*np.nanmax(signal)
+    def lowpassfilter(self, signal, thresh = 0.63, wavelet="db2"):
+        thresh = thresh*np.nanmean(signal)
         coeff = pywt.wavedec(signal, wavelet, mode="per" )
         coeff[1:] = (pywt.threshold(i, value=thresh, mode="soft" ) for i in coeff[1:])
         reconstructed_signal = pywt.waverec(coeff, wavelet, mode="per" )
@@ -223,8 +223,7 @@ class CoInception:
             
         else:
             if slicing is not None:
-                out = out[:, slicing]
-            
+                out = out[:, slicing]  
         return out.cpu()
     
     def encode(self, data, mask=None, encoding_window=None, casual=False, sliding_length=None, sliding_padding=0, batch_size=None):

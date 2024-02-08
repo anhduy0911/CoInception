@@ -51,7 +51,7 @@ class BasicUnit(nn.Module):
     def forward(self, x):
         x = self.conv1(x)
         x = self.conv2(x)
-        x = F.leaky_relu(x)
+        x = F.gelu(x)
         return x
     
 class InceptionBlock(nn.Module):
@@ -71,13 +71,13 @@ class InceptionBlock(nn.Module):
         ])
         self.max_pool_layers = nn.Sequential(*[
             nn.MaxPool1d(kernel_size=3, stride=1, padding=1),
-            nn.LeakyReLU(),
+            nn.GELU(),
             nn.Conv1d(in_channels, hidden_channels, 1),
         ])
 
         self.residual_fin = nn.Sequential(*[SamePadConv(in_channels=hidden_channels, out_channels=hidden_channels,
                         kernel_size=1, stride=stride, weight_norm=False),
-                        nn.LeakyReLU()
+                        # nn.GELU()
         ])
 
         self.use_residual = residual and in_channels != out_channels
