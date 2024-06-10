@@ -1,4 +1,4 @@
-# **Efficiency Meets Robustness: Enhancing Time Series Representations through Noise-Resilient Training and an Efficient Encoder**.
+# **Improving Time Series Encoding with Noise-Aware Self-Supervised Learning and an Efficient Encoder**.
 
 ## Requirements
 
